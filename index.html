@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>TGA Preview</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .app {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+      }
+      .header {
+        flex: none;
+        padding: 8px;
+        text-align: center;
+      }
+      .content {
+        padding: 8px;
+        text-align: center;
+      }
+      canvas {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <select id="select"></select>
+      </header>
+      <div class="content">
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+
+    <script type="module" src="../dist/decode.js"></script>
+    <script type="module">
+      import { openTgaFile } from '../dist/decode.js';
+
+      const select = document.getElementById('select');
+
+      select.addEventListener('change', (e) => {
+        showTgaImage(e.target.value);
+      });
+
+      main();
+
+      async function main() {
+        const meta = await fetch('meta.json').then((res) => res.json());
+
+        const options = meta.images.map((name) => {
+          const option = document.createElement('option');
+          option.value = name;
+          option.innerText = name;
+          return option;
+        });
+        select.append(...options);
+        select.value = meta.images[0];
+        showTgaImage(meta.images[0]);
+      }
+
+      async function showTgaImage(name) {
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const image = await openTgaFile(`./image/${name}`);
+        const imageData = new ImageData(
+          image.imageData,
+          image.width,
+          image.height,
+        );
+        canvas.width = imageData.width;
+        canvas.height = imageData.height;
+        ctx.putImageData(imageData, 0, 0);
+      }
+    </script>
+  </body>
+</html>
