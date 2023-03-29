@@ -1,0 +1,14 @@
+{
+  "name": "tga-image",
+  "version": "0.0.0",
+  "description": "Truevision TGA image decoder.",
+  "keywords": [
+    "tga-image"
+  ],
+  "author": "ricky <rickkky@foxmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
