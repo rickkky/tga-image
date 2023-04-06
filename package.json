@@ -9,7 +9,15 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
+    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare-demo": "node ./scripts/prepare-demo.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@tsconfig/recommended": "^1.0.2",
+    "rollup": "^3.20.2",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.3"
   }
 }
