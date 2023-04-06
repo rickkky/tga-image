@@ -1,0 +1,24 @@
+{
+  "images": [
+    "cbw8.tga",
+    "ccm8.tga",
+    "ctc16.tga",
+    "ctc24.tga",
+    "ctc32.tga",
+    "monochrome16_top_left.tga",
+    "monochrome16_top_left_rle.tga",
+    "monochrome8_bottom_left.tga",
+    "monochrome8_bottom_left_rle.tga",
+    "rgb24_bottom_left_rle.tga",
+    "rgb24_top_left.tga",
+    "rgb24_top_left_colormap.tga",
+    "rgb32_bottom_left.tga",
+    "rgb32_top_left_rle.tga",
+    "rgb32_top_left_rle_colormap.tga",
+    "ubw8.tga",
+    "ucm8.tga",
+    "utc16.tga",
+    "utc24.tga",
+    "utc32.tga"
+  ]
+}
