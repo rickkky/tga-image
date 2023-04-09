@@ -1,8 +1,9 @@
 /**
- * https://www.fileformat.info/format/tga/egff.htm
+ * - https://en.wikipedia.org/wiki/Truevision_TGA
+ * - https://www.fileformat.info/format/tga/egff.htm
  *
  * Attentions:
- * 1. The TGA file format is little-endian.
+ * - The TGA file format is little-endian.
  */
 
 /**
