@@ -1,23 +1,38 @@
 {
   "name": "tga-image",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha.0",
   "description": "Truevision TGA image decoder.",
   "keywords": [
     "tga-image"
   ],
-  "author": "rickkky <rickkky@foxmail.com>",
   "license": "MIT",
-  "main": "index.js",
+  "author": "rickkky <rickkky@foxmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rickkky/tga-image"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/my-lib.umd.js",
+  "module": "./dist/my-lib.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/my-lib.mjs",
+      "require": "./dist/my-lib.umd.js"
+    }
+  },
   "scripts": {
-    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare-demo": "node ./scripts/prepare-demo.js"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^11.1.0",
     "@tsconfig/recommended": "^1.0.2",
-    "rollup": "^3.20.2",
-    "tslib": "^2.5.0",
-    "typescript": "^5.0.3"
+    "@types/node": "^18.15.11",
+    "typescript": "^5.0.3",
+    "vite": "^4.2.1"
   }
 }

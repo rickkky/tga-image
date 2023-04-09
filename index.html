@@ -7,11 +7,12 @@
       body {
         margin: 0;
       }
-      .app {
+      #app {
         display: flex;
         flex-direction: column;
         width: 100vw;
         height: 100vh;
+        background-color: #f0f0f0;
       }
       .header {
         flex: none;
@@ -22,13 +23,13 @@
         padding: 8px;
         text-align: center;
       }
-      canvas {
-        background-color: #f0f0f0;
+      #canvas {
+        background-color: #ffffff;
       }
     </style>
   </head>
   <body>
-    <div class="app">
+    <div id="app">
       <header class="header">
         <select id="select"></select>
       </header>
@@ -37,9 +38,9 @@
       </div>
     </div>
 
-    <script type="module" src="../dist/index.js"></script>
+    <script type="module" src="./src/index.ts"></script>
     <script type="module">
-      import { openTgaFile } from '../dist/index.js';
+      import { openTgaFile } from './src/index.ts';
 
       const select = document.getElementById('select');
 
@@ -50,7 +51,7 @@
       main();
 
       async function main() {
-        const meta = await fetch('meta.json').then((res) => res.json());
+        const meta = await fetch('./demo/meta.json').then((res) => res.json());
 
         const options = meta.images.map((name) => {
           const option = document.createElement('option');
@@ -66,7 +67,7 @@
       async function showTgaImage(name) {
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
-        const image = await openTgaFile(`./image/${name}`);
+        const image = await openTgaFile(`./demo/image/${name}`);
         const imageData = new ImageData(
           image.imageData,
           image.width,
